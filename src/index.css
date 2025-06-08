@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+
+.grid-lines {
+    background-image:
+        repeating-linear-gradient(to right, #06060666 0px, #06060666 2px, transparent 2px, transparent 90px),
+        repeating-linear-gradient(to bottom, #06060666 0px, #06060666 2px, transparent 2px, transparent 90px);
+    background-size: 90px 90px;
+}
