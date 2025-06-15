@@ -1,38 +1,35 @@
-import { NavLink } from "react-router"
-import Logo from "../assets/10x-logo.png"
-import Button from "./Button"
-import HeaderLink from "./HeaderLink"
+import Link from "next/link";
+import SignOutButton from "./SignOutButton";
+import HeaderLink from "./HeaderLink";
 
 const Header = () => {
   return (
-    <header className='bg-black w-full flex items-center justify-center h-16' >
-      <nav className='w-full md:w-[65%] sm:w-[50%] md:mx-5 flex items-center justify-between'>
-        <NavLink to={"/"}>
-          <img src={Logo} alt='10x logo' className='w-19 h-12' />
-        </NavLink>
+    <header className="bg-black w-full flex items-center justify-center h-16">
+      <nav className="w-full  max-w-[60%] md:w-[65%] sm:w-[50%] md:mx-5 flex items-center justify-between">
+        <Link href={"/"}>
+          <img src="/10x-logo.png" alt="10x logo" className="w-19 h-12" />
+        </Link>
         <ul className="text-white flex gap-6.5">
           <li>
-            <HeaderLink to={"/"}>Programs</HeaderLink>
+            <HeaderLink to={"/programs"}>Programs</HeaderLink>
           </li>
           <li>
-            <HeaderLink to={"/"}>About us</HeaderLink>
+            <HeaderLink to={"/about"}>About us</HeaderLink>
           </li>
           <li>
-            <HeaderLink to={"/"}>Career</HeaderLink>
+            <HeaderLink to={"/career"}>Career</HeaderLink>
           </li>
           <li>
-            <HeaderLink to={"/"}>Question</HeaderLink>
+            <HeaderLink to={"/questions"}>Question</HeaderLink>
           </li>
           <li>
-            <HeaderLink to={"/"}>Students</HeaderLink>
+            <HeaderLink to={"/students"}>Students</HeaderLink>
           </li>
         </ul>
-        <Button>
-          Login
-        </Button>
+        <SignOutButton>Logout</SignOutButton>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
