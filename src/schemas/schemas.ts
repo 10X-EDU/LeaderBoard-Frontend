@@ -21,9 +21,6 @@ export const RegistrationStepOneSchema = z.object({
     .string()
     .email({ message: "incorect email" })
     .min(1, { message: "email is required." }),
-  identificator: z
-    .string()
-    .min(11, { message: "identificator must be at least 11 chart long" }),
 });
 
 export const RegistrationStepTwoSchema = z

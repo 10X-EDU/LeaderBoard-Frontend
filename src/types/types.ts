@@ -7,7 +7,7 @@ export type RegistrationFirstStepDataType = {
 
 export type RegistrationSecondStepDataType = {
   password: string;
-  confirmPassword: string;
+  passwordConfirm: string;
 };
 
 export type SigninType = {
@@ -24,6 +24,5 @@ export type RegistrationDataType = {
   email: string;
   firstName: string;
   lastName: string;
-  identificator: number;
-  password?: string;
+  password: string;
 };
