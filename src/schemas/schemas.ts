@@ -25,6 +25,7 @@ export const RegistrationStepOneSchema = z.object({
 
 export const RegistrationStepTwoSchema = z
   .object({
+    specialization: z.enum(["DEVELOPMENT", "DESIGNER"]),
     password: z
       .string()
       .min(8, { message: "password must be at least 8 characters." }),

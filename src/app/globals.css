@@ -6,3 +6,14 @@
         repeating-linear-gradient(to bottom, #06060666 0px, #06060666 2px, transparent 2px, transparent 90px);
     background-size: 90px 90px;
 }
+
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}

@@ -8,7 +8,7 @@ const TOKEN_KEYS = {
 } as const;
 
 // Routes that do NOT require authentication
-const PUBLIC_ROUTES = ["/sign-in", "/sign-up"];
+const PUBLIC_ROUTES = ["/sign-in", "/sign-up","/forgot-password"];
 
 /**
  * Clears authentication tokens from cookies.

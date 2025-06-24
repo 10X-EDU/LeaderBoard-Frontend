@@ -24,7 +24,6 @@ const SignInForm = () => {
   const router = useRouter();
 
   const handleSignIn = async (data: SigninType) => {
-    console.log("handled");
     try {
       const { email, password } = data;
 
@@ -37,8 +36,7 @@ const SignInForm = () => {
       router.push("/user/profile");
     } catch (error) {
       console.error(error);
-    } finally {
-    }
+    } 
   };
 
   return (
@@ -67,7 +65,7 @@ const SignInForm = () => {
           <span className="text-red-800">{errors?.password.message}</span>
         )}
       </InputField>
-      <Link href="/reset-password" className="text-[#B5B5B5] text-sm self-end">
+      <Link href="/forgot-password/1" className="text-[#B5B5B5] text-sm self-end">
         Forgor Password?
       </Link>
       <SubmitButton isActive={isSubmitting}>Continue</SubmitButton>

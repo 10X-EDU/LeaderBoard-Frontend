@@ -22,7 +22,7 @@ const SignUpStepTwoForm = () => {
 
 
     const router = useRouter();
-    
+
     const {
         register,
         handleSubmit,
@@ -35,15 +35,12 @@ const SignUpStepTwoForm = () => {
         data: RegistrationSecondStepDataType,
     ) => {
         try {
-            console.log(firstName, lastName, email, data);
-            console.log(data.passwordConfirm);
-            console.log(data.password);
 
             const resp = await signUpUser({
                 firstName,
                 lastName,
                 email,
-                specialization: "DEVELOPMENT",
+                specialization: data.specialization,
                 password: data.password,
                 passwordConfirm: data.passwordConfirm,
             });
@@ -55,7 +52,6 @@ const SignUpStepTwoForm = () => {
                     password: "",
                     identificator: 0,
                 });
-                console.log(resp.data.data.tokens);
                 await setTokensToCookies({
                     accessToken: resp.data.data.tokens.accessToken,
                     refreshToken: resp.data.data.tokens.refreshToken,
@@ -80,6 +76,14 @@ const SignUpStepTwoForm = () => {
             className="flex flex-col gap-6"
         >
             <InputField
+                {...register("specialization")}
+                type='select'
+                label='Specialization'
+                placeholder='DEVELOPER' >
+                {errors.specialization && (<p className="text-red-500 text-sm">{errors.specialization.message}</p>)}
+
+            </InputField>
+            <InputField
                 {...register("password")}
                 type="password"
                 label="Password"
@@ -93,7 +97,7 @@ const SignUpStepTwoForm = () => {
             <InputField
                 {...register("passwordConfirm")}
                 type="password"
-                label="Confirm Password"
+                label=""
                 placeholder="Confirm your password"
                 componentClasses=""
             >

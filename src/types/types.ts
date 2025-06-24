@@ -2,12 +2,12 @@ export type RegistrationFirstStepDataType = {
   firstName: string;
   lastName: string;
   email: string;
-  // identificator: number;
 };
 
 export type RegistrationSecondStepDataType = {
   password: string;
   passwordConfirm: string;
+  specialization: 'DEVELOPMENT' | 'DESIGNER';
 };
 
 export type SigninType = {
@@ -20,9 +20,4 @@ export type userStoreType = {
   setToken: (token: string | null) => void;
 };
 
-export type RegistrationDataType = {
-  email: string;
-  firstName: string;
-  lastName: string;
-  password: string;
-};
+export type RegistrationDataType = RegistrationFirstStepDataType & RegistrationSecondStepDataType

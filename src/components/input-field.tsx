@@ -1,6 +1,8 @@
 "use client";
 import { useState, type ReactNode } from "react";
 
+
+
 type InputFieldProps = {
   label: string;
   type?: string;
@@ -20,12 +22,45 @@ const InputField = ({
   pattern,
   ...rest
 }: InputFieldProps) => {
+
   const [inputType, setInputType] = useState<string>(type || "");
 
+
+  if (type === "select") {
+    return (
+      <>
+        <div className="flex flex-col gap-2 text-white">
+          <div className={`flex flex-col gap-2 relative ${componentClasses} `}>
+            <label className="text-2xl" htmlFor={label}>
+              {label}
+            </label>
+            {/* Pass the rest props to the select element */}
+            <select
+              className="bg-black text-white border-1 p-4"
+              id={label}
+              {...rest}
+            >
+              <option value="" disabled>--Please choose an option--</option>
+              <option value="DESIGNER">DESIGNER</option>
+              <option value="DEVELOPMENT">DEVELOPMENT</option>
+            </select>
+          </div>
+        </div>
+        <div>{children}</div>
+      </>
+    );
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleVisibilityChange = (e: any) => {
     e.preventDefault();
-    inputType === "password" ? setInputType("text") : setInputType("password");
+    if (inputType === "password") {
+      setInputType("text")
+    } else {
+      setInputType("password");
+    }
   };
+
 
   return (
     <div className="flex flex-col gap-2 text-white">
@@ -49,7 +84,7 @@ const InputField = ({
           >
             {inputType === "password" ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img className="w-4 h-4" src={"/visible.svg"} alt="eyes closed" />
+              <img className="w-4 h-4" src={'/visible.svg'} alt="eyes closed" />
             ) : (
               // eslint-disable-next-line @next/next/no-img-element
               <img
