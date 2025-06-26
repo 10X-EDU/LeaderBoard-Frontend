@@ -3,18 +3,17 @@
 import React from "react";
 import { usePathname } from "next/navigation";
 
-interface SignupStepTrackerProps {
-    steps: string[];
-}
-
-const SignupStepTracker: React.FC<SignupStepTrackerProps> = () => {
+const SignupStepTracker = () => {
     const pathname = usePathname();
-
+    if (!pathname.startsWith("/sign-up")) {
+        return null;
+    }
     const steps = ["First", "Second", "Finish"];
     let currentStep = 1;
     if (pathname.includes("/sign-up/3")) currentStep = 3;
     else if (pathname.includes("/sign-up/2")) currentStep = 2;
     else if (pathname.includes("/sign-up/1")) currentStep = 1;
+
     return (
         <div
             className="w-full flex flex-col justify-center items-center gap-[10px] h-[79px] p-[10px] flex-shrink-0 bg-black z-20 border-b border-[#333] fixed top-0 left-0"
