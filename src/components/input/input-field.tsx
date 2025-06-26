@@ -65,8 +65,9 @@ const InputField = ({
   return (
     <div className="flex flex-col gap-2 text-white">
       <div className={`flex flex-col gap-2 relative ${componentClasses} `}>
-        <label className="text-2xl" htmlFor={label}>
-          {label}
+        <label className="text-2xl flex gap-1" htmlFor={label}>
+          <span>{label}</span>
+          <span className="text-[#FF4444] align-middle text-[18px]">*</span>
         </label>
         <input
           id={label}
