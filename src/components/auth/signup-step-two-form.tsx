@@ -8,8 +8,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form';
-import SubmitButton from './submit-button';
-import InputField from './input-field';
+import SubmitButton from '../submit-button';
+import InputField from '../input/input-field';
 
 const SignUpStepTwoForm = () => {
 

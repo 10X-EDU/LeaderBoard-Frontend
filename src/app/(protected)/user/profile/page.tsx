@@ -1,8 +1,8 @@
 "use client";
 
-import Header from "@/components/header";
-import ProfileBackground from "@/components/profile-background";
-import ProfileImage from "@/components/profile-image";
+import Header from "@/components/header/header";
+import ProfileBackground from "@/components/profile/profile-background";
+import ProfileImage from "@/components/profile/profile-image";
 
 function Page() {
   return (

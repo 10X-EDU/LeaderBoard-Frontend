@@ -1,4 +1,4 @@
-import SignUpStepTwoForm from "@/components/signup-step-two-form";
+import SignUpStepTwoForm from "@/components/auth/signup-step-two-form";
 
 const Page = () => {
 

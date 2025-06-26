@@ -1,4 +1,4 @@
-import ResetCodeForm from '@/components/reset-code-form'
+import ResetCodeForm from '@/components/auth/reset-code-form'
 import React from 'react'
 
 const page = () => {

@@ -4,9 +4,9 @@ import { SigninType } from "@/types/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import InputField from "./input-field";
+import InputField from "../input/input-field";
 import Link from "next/link";
-import SubmitButton from "./submit-button";
+import SubmitButton from "../submit-button";
 import { signInWithEmailAndPassword } from "@/lib/api";
 import { setTokensToCookies } from "@/lib/actions";
 

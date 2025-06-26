@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect } from 'react'
-import InputField from './input-field'
-import SubmitButton from './submit-button'
+import InputField from '../input/input-field'
+import SubmitButton from '../submit-button'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { RegistrationDataType, RegistrationFirstStepDataType } from '@/types/types';
 import { RegistrationStepOneSchema } from '@/schemas/schemas';

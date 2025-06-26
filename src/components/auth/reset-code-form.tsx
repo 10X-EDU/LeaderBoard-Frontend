@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, ChangeEvent, KeyboardEvent, useCallback } from 'react';
-import SubmitButton from './submit-button';
+import SubmitButton from '../submit-button';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';

@@ -1,13 +1,13 @@
 'use client'
 import React from 'react'
-import InputField from './input-field'
-import SubmitButton from './submit-button'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
 import usePasswordStore from '@/store/ResetPasswordStore'
 import axios from 'axios'
+import SubmitButton from '../submit-button'
+import InputField from '../input/input-field'
 
 const resetSchema = z.object({
     reset: z.string().email({ message: "inccorrect email." }).min(1, { message: "email is required." })

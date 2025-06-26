@@ -1,4 +1,4 @@
-import SignUpStepOneForm from "@/components/signup-step-one-form";
+import SignUpStepOneForm from "@/components/auth/signup-step-one-form";
 import Link from "next/link";
 
 const Page = () => {

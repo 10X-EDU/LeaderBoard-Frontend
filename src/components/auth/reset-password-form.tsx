@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
-import InputField from './input-field';
-import SubmitButton from './submit-button';
+import InputField from '../input/input-field';
+import SubmitButton from '../submit-button';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -28,8 +28,14 @@ const ResetPasswordForm = ({ resetToken }: { resetToken: string }) => {
                 confirmPassword: data.confirmPassword
             })
             router.push("/")
-        } catch (error) {
-            setError("root", { message: error?.response.data.message || "error" })
+        } catch (error: unknown) {
+            if (axios.isAxiosError(error)) {
+                setError("root", { message: error.response?.data?.message || "error" });
+            } else if (error instanceof Error) {
+                setError("root", { message: error.message });
+            } else {
+                setError("root", { message: "error" });
+            }
         }
     }
     return (
