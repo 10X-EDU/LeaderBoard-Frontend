@@ -84,12 +84,12 @@ const InputField = ({
           >
             {inputType === "password" ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img className="w-4 h-4" src={'/visible.svg'} alt="eyes closed" />
+              <img className="w-4 h-4 translate-y-[25%]" src={'/assets/visible.svg'} alt="eyes closed" />
             ) : (
               // eslint-disable-next-line @next/next/no-img-element
               <img
-                className="w-4 h-4"
-                src={"/not-visible.svg"}
+                className="w-4 h-4 translate-y-[25%]"
+                src={"/assets/not-visible.svg"}
                 alt="eyes opened"
               />
             )}

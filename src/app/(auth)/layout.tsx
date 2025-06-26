@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "../globals.css";
 
 export default function Layout({
@@ -11,7 +12,7 @@ export default function Layout({
         {children}
       </div>
       <img
-        src="/auth-background-image.png"
+        src={"/assets/background.png"}
         alt="background"
         className="w-full h-full aspect-video object-center object-cover overflow-hidden"
       />
