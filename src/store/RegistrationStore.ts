@@ -16,7 +16,7 @@ const useRegistrationStore = create<any>()(
     }),
     {
       name: "registration-storage",
-      storage: createJSONStorage(() => localStorage),
+      storage: createJSONStorage(() => sessionStorage),
     },
   ),
 );
