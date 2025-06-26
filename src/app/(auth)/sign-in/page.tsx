@@ -1,4 +1,5 @@
 import SignInForm from "@/components/auth/signin-form";
+import SignInWithGoogle from "@/components/sign-in-with-google";
 import Link from "next/link";
 
 function Page() {
@@ -25,6 +26,7 @@ function Page() {
           <span className="text-white">OR</span>
           <span className="w-full h-[1px] bg-[#4D4D4D]" />
         </div>
+        <SignInWithGoogle />
       </div>
     </>
   );
