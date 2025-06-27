@@ -11,7 +11,7 @@ const Header = () => {
       <nav className="w-full  max-w-[60%] md:w-[65%] sm:w-[50%] md:mx-5 flex items-center justify-between">
         <ul className="text-white flex items-center">
           <Link href={"/dashboard"} className="mr-11 inline-block">
-            <img src="/10x-logo.svg" alt="10x logo" className="w-19 h-12" />
+            <img src="/assets/10x-logo.svg" alt="10x logo" className="w-19 h-12" />
           </Link>
           <li className="mr-8">
             <HeaderLink to={"/courses"}>Courses</HeaderLink>
@@ -21,7 +21,7 @@ const Header = () => {
           </li>
         </ul>
         <button onClick={handleProfilePictureClick} >
-          <img src={"/default-profile.png"} alt="profile" className="max-w-8 max-h-8" />
+          <img src={"/assets/default-profile.png"} alt="profile" className="max-w-8 max-h-8" />
         </button>
       </nav>
     </header>
