@@ -12,8 +12,12 @@ type InputFieldProps = {
   children?: ReactNode;
   componentClasses?: string;
   pattern?: string;
+  value?: string;
+  defaultValue?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   rest?: string[];
 };
+
 
 const InputField = ({
   label,
@@ -22,10 +26,16 @@ const InputField = ({
   componentClasses,
   children,
   pattern,
+  value: controlledValue,
+  defaultValue,
+  onChange,
   ...rest
 }: InputFieldProps) => {
-
   const [inputType, setInputType] = useState<string>(type || "");
+  const [isFocused, setIsFocused] = useState(false);
+  const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue || "");
+  const isControlled = controlledValue !== undefined;
+  const value = isControlled ? controlledValue : uncontrolledValue;
 
 
   if (type === "select") {
@@ -68,9 +78,9 @@ const InputField = ({
 
   return (
     <div className="flex flex-col gap-2 text-white">
-      <div className={`flex flex-col gap-2 relative ${componentClasses} `}>
+      <div className={`flex flex-col gap-2 relative ${componentClasses}`}>
         <label
-          className={`text-white text-[18px] font-normal leading-[100%] font-[Share_Tech] flex gap-1 ${shareTech.className}`}
+          className={`text-white text-[18px] font-normal leading-[100%] font-[Share_Tech] flex gap-1 mb-3 ${shareTech.className}`}
           htmlFor={label}
         >
           <span>{label}</span>
@@ -82,11 +92,35 @@ const InputField = ({
           <input
             id={label}
             type={inputType}
-            className={`flex-1 focus:outline-[#0099FF] outline outline-white py-5 px-6 transition text-[#4D4D4D] text-[18px] font-normal leading-[100%] font-[Share_Tech] ${shareTech.className} placeholder:text-[#4D4D4D] placeholder:text-[18px] placeholder:font-normal placeholder:leading-[100%] placeholder:font-[Share_Tech]`}
-            placeholder={placeholder}
+            className={`flex-1 border border-[#999] bg-black focus:outline-[#0099FF] outline-white py-5 px-6 transition text-white text-[18px] font-normal leading-[100%] font-[Share_Tech] ${shareTech.className} placeholder:text-transparent`}
+            placeholder=" "
             pattern={pattern}
+            value={value}
+            onChange={e => {
+              if (isControlled) {
+                onChange && onChange(e);
+              } else {
+                setUncontrolledValue(e.target.value ?? "");
+              }
+            }}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
             {...rest}
           />
+          {placeholder && (
+            <span
+              className={`absolute left-4 pointer-events-none transition-all duration-200 px-1
+                ${
+                  (isFocused || value.length > 0)
+                    ? "bg-[#0B0B0B] -top-2 text-xs " + (isFocused ? "text-[#0099FF]" : "text-[#4D4D4D]")
+                    : "bg-black top-1/2 -translate-y-1/2 text-[18px] text-[#4D4D4D]"
+                }
+              `}
+              style={{zIndex: 2, backgroundColor: (isFocused || value.length > 0) ? '#0B0B0B' : '#000'}}
+            >
+              {placeholder}
+            </span>
+          )}
           {type === "password" && (
             <button
               type="button"
