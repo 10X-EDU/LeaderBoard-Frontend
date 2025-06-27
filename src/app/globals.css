@@ -8,6 +8,13 @@
 }
 
 
+.body-transition{
+  opacity: 0.1;
+  background-color: #000;
+  transition: all 0.1s ease;
+}
+
+
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {

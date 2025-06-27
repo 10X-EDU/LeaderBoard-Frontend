@@ -30,6 +30,7 @@ const SignUpStepTwoForm = () => {
         formState: { errors, isSubmitting },
         setError,
     } = useForm<RegistrationSecondStepDataType>({
+        mode: "all",
         resolver: zodResolver(RegistrationStepTwoSchema),
     });
     const handleRegistrationSecondStep = async (
@@ -45,7 +46,11 @@ const SignUpStepTwoForm = () => {
                 password: data.password,
                 passwordConfirm: data.passwordConfirm,
             });
-            if (resp?.status === 201) {
+
+
+            router.push("/sign-up/3");
+            
+            setTimeout(() => {
                 setRegistrationData({
                     email: "",
                     firstName: "",
@@ -53,8 +58,8 @@ const SignUpStepTwoForm = () => {
                     password: "",
                     identificator: 0,
                 });
-                router.push("/sign-up/3");
-            }
+            }, 500);
+
         } catch (error) {
             console.error(error);
             let message = "Something went wrong. Please try again.";
