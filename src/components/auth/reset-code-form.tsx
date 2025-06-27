@@ -34,6 +34,7 @@ const ResetCodeForm = () => {
     formState: { isSubmitting, errors },
     setError
   } = useForm<ResetCodeType>({
+    mode: "all",
     resolver: zodResolver(ResetCodeSchema),
     defaultValues: {
       code: '',

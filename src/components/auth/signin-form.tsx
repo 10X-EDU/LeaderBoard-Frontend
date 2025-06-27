@@ -17,7 +17,7 @@ const SignInForm = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm({
-    mode: "onTouched",
+    mode: "all",
     resolver: zodResolver(SignInSchema),
   });
 

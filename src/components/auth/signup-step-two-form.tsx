@@ -52,11 +52,7 @@ const SignUpStepTwoForm = () => {
                     password: "",
                     identificator: 0,
                 });
-                await setTokensToCookies({
-                    accessToken: resp.data.data.tokens.accessToken,
-                    refreshToken: resp.data.data.tokens.refreshToken,
-                });
-                router.push("/user/profile");
+                router.push("/sign-up/3");
             }
         } catch (error) {
             console.error(error);

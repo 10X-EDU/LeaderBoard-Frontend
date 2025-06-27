@@ -20,6 +20,7 @@ type ResetType = z.infer<typeof resetSchema>
 
 const ForgotPasswordForm = () => {
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<ResetType>({
+        mode: "all",
         resolver: zodResolver(resetSchema)
     });
     const setEmail = usePasswordStore((state) => state.setEmail);

@@ -26,6 +26,7 @@ type resetPasswordType = z.infer<typeof resetPasswordSchema>
 
 const ResetPasswordForm = ({ resetToken }: { resetToken: string }) => {
     const { register, handleSubmit, formState: { errors, isSubmitting }, setError } = useForm<resetPasswordType>({
+        mode: "all",
         resolver: zodResolver(resetPasswordSchema)
     })
     const router = useRouter();
