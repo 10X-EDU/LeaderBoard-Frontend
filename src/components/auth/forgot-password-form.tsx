@@ -8,6 +8,7 @@ import usePasswordStore from '@/store/ResetPasswordStore'
 import axios from 'axios'
 import SubmitButton from '../submit-button'
 import InputField from '../input/input-field'
+import ErrorMessage from '../input/error-message'
 
 const resetSchema = z.object({
     reset: z
@@ -44,7 +45,7 @@ const ForgotPasswordForm = () => {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-11'>
             <InputField {...register("reset")} label="Gmail" placeholder="Enter Your Email">
-                {errors.reset && <p className='text-red-600 text-sm'>{errors.reset.message}</p>}
+                <ErrorMessage message={errors.reset?.message} />
             </InputField>
             <SubmitButton isActive={isSubmitting}>Continue</SubmitButton>
         </form>

@@ -2,6 +2,7 @@
 
 import React, { useRef, ChangeEvent, KeyboardEvent, useCallback } from 'react';
 import SubmitButton from '../submit-button';
+import ErrorMessage from '../input/error-message';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -161,9 +162,7 @@ const ResetCodeForm = () => {
               />
             ))}
           </div>
-          {errors.code && (
-            <span className="text-red-500 text-sm">{errors.code.message}</span>
-          )}
+          <ErrorMessage message={errors.code?.message} />
 
           <span className="text-[#E6E6E6] font-[Tektur] text-[12px] font-normal leading-[18px]">
             Didn’t receive a code?{' '}

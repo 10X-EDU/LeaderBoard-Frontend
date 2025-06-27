@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect } from 'react'
 import InputField from '../input/input-field'
+import ErrorMessage from '../input/error-message'
 import SubmitButton from '../submit-button'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { RegistrationDataType, RegistrationFirstStepDataType } from '@/types/types';
@@ -47,9 +48,7 @@ const SignUpStepOneForm = () => {
                 placeholder="Enter your Firstname"
                 componentClasses=""
             >
-                {errors.firstName && (
-                    <p className="text-red-500 text-sm">{errors.firstName.message}</p>
-                )}
+                <ErrorMessage message={errors.firstName?.message} />
             </InputField>
             <InputField
                 {...register("lastName")}
@@ -57,9 +56,7 @@ const SignUpStepOneForm = () => {
                 placeholder="Enter your Lastname"
                 componentClasses=""
             >
-                {errors.lastName && (
-                    <p className="text-red-500 text-sm">{errors.lastName.message}</p>
-                )}
+                <ErrorMessage message={errors.lastName?.message} />
             </InputField>
             <InputField
                 {...register("email")}
@@ -67,9 +64,7 @@ const SignUpStepOneForm = () => {
                 placeholder="Enter your Email"
                 componentClasses=""
             >
-                {errors.email && (
-                    <p className="text-red-500 text-sm">{errors.email.message}</p>
-                )}
+                <ErrorMessage message={errors.email?.message} />
             </InputField>
             <SubmitButton isActive={isSubmitting}>Continue</SubmitButton>
         </form>

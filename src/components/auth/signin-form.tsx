@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import InputField from "../input/input-field";
+import ErrorMessage from "../input/error-message";
 import Link from "next/link";
 import SubmitButton from "../submit-button";
 import { signInWithEmailAndPassword } from "@/lib/api";
@@ -50,9 +51,7 @@ const SignInForm = () => {
         placeholder="Enter your Email"
         componentClasses=""
       >
-        {errors?.email && (
-          <span className="text-red-800">{errors?.email.message}</span>
-        )}
+        <ErrorMessage message={errors?.email?.message} />
       </InputField>
       <InputField
         {...register("password")}
@@ -61,9 +60,7 @@ const SignInForm = () => {
         placeholder="Enter your Password"
         componentClasses=""
       >
-        {errors?.password && (
-          <span className="text-red-800">{errors?.password.message}</span>
-        )}
+        <ErrorMessage message={errors?.password?.message} />
       </InputField>
       <Link href="/forgot-password/1" className="text-[#B5B5B5] text-sm self-end">
         Forgor Password?

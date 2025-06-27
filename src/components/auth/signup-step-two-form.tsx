@@ -10,6 +10,7 @@ import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import SubmitButton from '../submit-button';
 import InputField from '../input/input-field';
+import ErrorMessage from '../input/error-message';
 
 const SignUpStepTwoForm = () => {
 
@@ -82,8 +83,7 @@ const SignUpStepTwoForm = () => {
                 type='select'
                 label='Specialization'
                 placeholder='DEVELOPER' >
-                {errors.specialization && (<p className="text-red-500 text-sm">{errors.specialization.message}</p>)}
-
+                <ErrorMessage message={errors.specialization?.message} />
             </InputField>
             <InputField
                 {...register("password")}
@@ -92,9 +92,7 @@ const SignUpStepTwoForm = () => {
                 placeholder="Enter your password"
                 componentClasses=""
             >
-                {errors.password && (
-                    <p className="text-red-500 text-sm">{errors.password.message}</p>
-                )}
+                <ErrorMessage message={errors.password?.message} />
             </InputField>
             <InputField
                 {...register("passwordConfirm")}
@@ -103,16 +101,10 @@ const SignUpStepTwoForm = () => {
                 placeholder="Confirm your password"
                 componentClasses=""
             >
-                {errors.passwordConfirm && (
-                    <p className="text-red-500 text-sm">
-                        {errors.passwordConfirm.message}
-                    </p>
-                )}
+                <ErrorMessage message={errors.passwordConfirm?.message} />
             </InputField>
             <SubmitButton isActive={isSubmitting}>Continue</SubmitButton>
-            {errors.root && (
-                <p className="text-red-500 text-sm">{errors.root?.message}</p>
-            )}
+            <ErrorMessage message={errors.root?.message} />
         </form>
     )
 }

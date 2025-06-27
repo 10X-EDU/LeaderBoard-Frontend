@@ -1,3 +1,4 @@
+import ErrorMessage from '../input/error-message';
 'use client'
 import React from 'react'
 import InputField from '../input/input-field';
@@ -51,13 +52,13 @@ const ResetPasswordForm = ({ resetToken }: { resetToken: string }) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-5'>
             <InputField label='Reset password' placeholder='' type='password' {...register("password")} >
-                {errors.password && <span className='text-red-600 text-sm'>{errors.password.message}</span>}
+                <ErrorMessage message={errors.password?.message} />
             </InputField>
             <InputField label='' placeholder='' type='password' {...register("confirmPassword")}>
-                {errors.confirmPassword && <span className='text-red-600 text-sm'>{errors.confirmPassword.message}</span>}
+                <ErrorMessage message={errors.confirmPassword?.message} />
             </InputField>
             <SubmitButton isActive={isSubmitting}>{isSubmitting ? "pending" : "continue"}</SubmitButton>
-            {errors.root && <span className='text-red-600 text-sm'>{errors.root.message}</span>}
+            <ErrorMessage message={errors.root?.message} />
         </form>
     )
 }

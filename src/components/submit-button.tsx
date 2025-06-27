@@ -11,7 +11,7 @@ const SubmitButton = ({
     <div className="bg-white">
       <button
         type="submit"
-        className="cursor-pointer w-full bg-[#FF2257] py-4.5 text-xl text-white font-semibold hover:translate-x-1.5 hover:-translate-y-0.5 transition disabled:bg-slate-600"
+        className="cursor-pointer w-full bg-[#FF2257] py-4.5 text-xl text-white font-semibold hover:translate-x-1 hover:-translate-y-1 transition disabled:bg-slate-600"
         disabled={isActive}
       >
         {children}
