@@ -134,11 +134,10 @@ const ResetCodeForm = () => {
 
   return (
     <>
-      <span className='mb-9 inline-block'>
-        <span className="inline-block text-[#9F9F9F] whitespace-nowrap">Enter the 6-digit code we sent to
-        </span>
-        <span className='text-[#E6E6E6]'>{email || "Tsotne123@gmail.com"}</span>
-      </span>
+      <div className='mb-9'>
+        <span className="block text-[#9F9F9F] whitespace-nowrap text-[12px] font-normal leading-[18px] font-[Tektur]">Enter the 6-digit code we sent to</span>
+        <span className="block text-[#E6E6E6] font-[Tektur] text-[12px] font-normal leading-[18px]">{email || "Tsotne123@gmail.com"}</span>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-14.5 flex flex-col gap-2">
           <div className="flex gap-2 text-white">
@@ -164,11 +163,11 @@ const ResetCodeForm = () => {
             <span className="text-red-500 text-sm">{errors.code.message}</span>
           )}
 
-          <span className="text-white">
+          <span className="text-[#E6E6E6] font-[Tektur] text-[12px] font-normal leading-[18px]">
             Didn’t receive a code?{' '}
             <button
               type="button"
-              className="cursor-pointer text-red-500 underline hover:text-red-500/50"
+              className="cursor-pointer text-red-500 underline hover:text-red-500/50 font-[Tektur] text-[12px] font-normal leading-[18px]"
               onClick={handleResendCode}
             >
               Resend Code{' '}

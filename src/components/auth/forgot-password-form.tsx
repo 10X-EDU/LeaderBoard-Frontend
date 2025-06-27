@@ -10,7 +10,10 @@ import SubmitButton from '../submit-button'
 import InputField from '../input/input-field'
 
 const resetSchema = z.object({
-    reset: z.string().email({ message: "inccorrect email." }).min(1, { message: "email is required." })
+    reset: z
+      .string()
+      .min(1, { message: "Please enter your email address." })
+      .email({ message: "Please enter a valid email address (e.g. user@example.com)." })
 })
 
 type ResetType = z.infer<typeof resetSchema>
