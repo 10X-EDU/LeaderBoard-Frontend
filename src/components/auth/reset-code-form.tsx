@@ -12,8 +12,9 @@ import { useRouter } from 'next/navigation';
 const ResetCodeSchema = z.object({
   code: z
     .string()
-    .length(6, { message: 'Code must be exactly 6 digits.' })
-    .regex(/^\d+$/, { message: 'Code must contain only digits.' }),
+    .min(1, { message: 'Please enter the 6-digit code sent to your email.' })
+    .length(6, { message: 'The code must be exactly 6 digits.' })
+    .regex(/^\d+$/, { message: 'The code must contain only numbers (0-9).' }),
 });
 
 type ResetCodeType = z.infer<typeof ResetCodeSchema>;

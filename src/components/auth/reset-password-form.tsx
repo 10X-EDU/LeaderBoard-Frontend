@@ -9,9 +9,18 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
 const resetPasswordSchema = z.object({
-    password: z.string().min(8, { message: "password must be at least 8 characters long." }),
-    confirmPassword: z.string().min(8, { message: "password must be at least 8 characters long." })
-})
+    password: z
+      .string()
+      .min(1, { message: "Please enter a new password." })
+      .min(8, { message: "Password must be at least 8 characters long." }),
+    confirmPassword: z
+      .string()
+      .min(1, { message: "Please confirm your new password." })
+      .min(8, { message: "Password must be at least 8 characters long." })
+}).refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match.",
+    path: ["confirmPassword"]
+});
 
 type resetPasswordType = z.infer<typeof resetPasswordSchema>
 

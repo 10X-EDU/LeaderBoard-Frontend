@@ -1,19 +1,14 @@
+"use client";
 import React from 'react';
+import { useParams } from 'next/navigation';
 import ResetPasswordForm from '@/components/auth/reset-password-form';
 
-interface ResetPasswordPageProps {
-  params: {
-    resetToken: string;
-  };
-}
-
-const ResetPasswordPage: React.FC<ResetPasswordPageProps> = ({ params }) => {
-  const { resetToken } = params;
+const ResetPasswordPage = () => {
+  const params = useParams();
+  const resetToken = params?.resetToken as string;
 
   return (
-    <div className='text-white'>
-      <ResetPasswordForm resetToken={resetToken} />
-    </div>
+    <ResetPasswordForm resetToken={resetToken} />
   );
 };
 
