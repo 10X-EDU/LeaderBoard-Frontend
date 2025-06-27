@@ -60,7 +60,13 @@ const SignUpStepTwoForm = () => {
             }
         } catch (error) {
             console.error(error);
-            setError("root", { message: "something went wrong" });
+            let message = "Something went wrong. Please try again.";
+            if (error && typeof error === "object" && "response" in error && (error as any).response?.data?.message) {
+                message = (error as any).response.data.message;
+            } else if (error instanceof Error && error.message) {
+                message = error.message;
+            }
+            setError("root", { message });
         }
     };
 
